@@ -1,0 +1,30 @@
+.prod {
+  border: 2px solid black;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  width: 150px;
+  height: 150px;
+}
+
+button {
+  width: 70px;
+  height: 40px;
+}
+
+button:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.btn-finalizar {
+  width: 100px;
+  height: 40px;
+}
+
+.totalProductos {
+  border: 2px solid black;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  left: 50%;
+}
