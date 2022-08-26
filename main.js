@@ -1,20 +1,3 @@
-/*let array = [
-  { id: 100, nombre: 'zapato' },
-  { id: 101, nombre: 'cartera' },
-  { id: 102, nombre: 'reloj' },
-];
-
-let html = '';
-for (const item of array) {
-  html = html + '<p onclick="handleClickProducto(' + item.id + ')">' + item.nombre + ' ' + item.id + '</p>';
-}
-
-function handleClickProducto(id) {
-  alert('quiere hacer algo con el producto cuyo id: ' + id);
-}
-
-document.getElementById('div-productos').innerHTML = html;*/
-
 // aca empieza
 
 let carrito = [];
@@ -71,12 +54,3 @@ function finalizarCompra() {
   document.body.append(carritoFinal);
   carritoFinal.className = 'totalProductos';
 }
-
-//USADO
-
-/*while (codigoProducto != 'FINALIZAR') {
-  codigoProducto = prompt(
-    'Ingrese el numero que representa el producto que desea elegir:\n\n1)Remera $2500\n2)Jean $3600\n3)Bermuda $3300\n4)Buzo $4000\n5)Campera de jean $7000\n6)Zapatillas $11000\n\nPara finalizar la orden ingrese "FINALIZAR"'
-  );
-  sumarAlCarrito(codigoProducto);
-}*/
