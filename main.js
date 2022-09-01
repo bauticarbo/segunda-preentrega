@@ -1,23 +1,56 @@
 // aca empieza
 
 let carrito = [];
+let carritoEnLS = JSON.parse(localStorage.getItem('carritoJSON'));
+/*if (carritoEnLS) {
+  carrito = carritoEnLS;
+}*/
 
-let codigoProducto;
+let enCarrito;
+
+let totalCarrito = 0;
+
+let carritoFinal = document.getElementById('carritoFinal');
+
+carritoFinal.innerHTML = '<b>Aún no tiene ningun producto en el carrito.</b>';
+carritoFinal.className = 'totalProductos';
 
 function sumarAlCarrito(id) {
-  if (id == 100) {
-    carrito.push(productosStock[0]);
-  } else if (id == 101) {
-    carrito.push(productosStock[1]);
-  } else if (id == 102) {
-    carrito.push(productosStock[2]);
-  } else if (id == 103) {
-    carrito.push(productosStock[3]);
-  } else if (id == 104) {
-    carrito.push(productosStock[4]);
-  } else if (id == 105) {
-    carrito.push(productosStock[5]);
+  switch (id) {
+    case 100:
+      carrito.push(productosStock[0]);
+      totalCarrito += productosStock[0].precio;
+      break;
+    case 101:
+      carrito.push(productosStock[1]);
+      totalCarrito += productosStock[1].precio;
+      break;
+    case 102:
+      carrito.push(productosStock[2]);
+      totalCarrito += productosStock[2].precio;
+      break;
+    case 103:
+      carrito.push(productosStock[3]);
+      totalCarrito += productosStock[3].precio;
+      break;
+    case 104:
+      carrito.push(productosStock[4]);
+      totalCarrito += productosStock[4].precio;
+      break;
+    case 105:
+      carrito.push(productosStock[5]);
+      totalCarrito += productosStock[5].precio;
+      break;
   }
+
+  carritoFinal.innerHTML = `<p>Los productos que colocó en el carrito son: </p>`;
+
+  for (let i = 0; i < carrito.length; i++) {
+    carritoFinal.innerHTML += `<div>- ${carrito[i].prod}  $${carrito[i].precio} <button class="btn-eliminar"  onclick="">Eliminar del carrito</button></div>`;
+  }
+
+  carritoFinal.innerHTML += `<p> Sumando un total de $${totalCarrito}</p> <div><button class="btn-finalizar" id="btn-finalizar" onclick="">FINALIZAR COMPRA</button></div>`;
+  let carritoJSON = JSON.stringify(carrito);
 }
 
 const productosStock = [
@@ -37,20 +70,6 @@ for (const item of productosStock) {
 
 document.getElementById('productos').innerHTML = productosHTML;
 
-//EL CARRITO QUEDO CONFORMADO POR LOS OBJETOS QUE SE LE ACABAN DE SUMAR
-console.log(carrito);
+const carritoJSON = JSON.stringify(carrito);
 
-let enCarrito;
-let totalCarrito = 0;
-
-function finalizarCompra() {
-  enCarrito = 'Los productos que colocó en el carrito son: <br>';
-  for (let i = 0; i < carrito.length; i++) {
-    enCarrito += ` ${carrito[i].prod}  $${carrito[i].precio}<br>`;
-    totalCarrito += carrito[i].precio;
-  }
-  let carritoFinal = document.createElement('div');
-  carritoFinal.innerHTML = `<p>${enCarrito} Sumando un total de $${totalCarrito}</p>`;
-  document.body.append(carritoFinal);
-  carritoFinal.className = 'totalProductos';
-}
+localStorage.setItem('carritoJSON', carritoJSON);

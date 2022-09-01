@@ -16,11 +16,16 @@ button:hover {
   transform: scale(1.1, 1.1);
 }
 
-.btn-finalizar {
-  width: 100px;
-  height: 40px;
+.btn-eliminar {
+  display: inline-block;
+  height: 30px;
+  width: 120px;
+  font-size: 12px;
 }
 
+.btn-finalizar {
+  width: 120px;
+}
 .totalProductos {
   border: 2px solid black;
   display: inline-block;
