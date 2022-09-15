@@ -70,12 +70,5 @@ for (const item of productosStock) {
   productosHTML += `<div class="prod"><p>Producto: ${item.prod} <br>Precio: $${item.precio}</p><button class="btn-prod" id="btn${item.id}" onclick="sumarAlCarrito(${item.id})">Agregar al carrito</button></div>`;
 }
 
-/*document.getElementsByClassName('btn-prod').onclick(
-  Toastify({
-    text: 'Probando toast!',
-    duration: 3000,
-  }).showToast()
-);*/
-
 document.getElementById('productos').innerHTML = productosHTML;
 console.log(carrito);
